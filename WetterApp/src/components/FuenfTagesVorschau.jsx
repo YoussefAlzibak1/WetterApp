@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-const StundenWetter = () => {
+const FuenfTagesVorschau = () => {
 
     const {  } = useContext(contextWetter);
 
@@ -11,4 +11,4 @@ const StundenWetter = () => {
     );
 }
 
-export default StundenWetter;
+export default FuenfTagesVorschau;
