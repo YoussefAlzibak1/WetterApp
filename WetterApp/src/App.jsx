@@ -1,5 +1,4 @@
 import './App.css'
-import AktuellerOrt from './components/AktuellerOrt'
 import AktuellesWetter from './components/AktuellesWetter'
 import FuenfTagesVorschau from './components/FuenfTagesVorschau'
 import Header from './components/Header'
@@ -9,12 +8,10 @@ import ContextProvider from './context/ContextProvider'
 
 function App() {
   
-
   return (
     <>
       < Header/>
       < ContextProvider>
-      < AktuellerOrt />
       < AktuellesWetter />
       < StundenWetter />
       < FuenfTagesVorschau />

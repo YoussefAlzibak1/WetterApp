@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 const Header = () => {
 
-    const {  } = useContext(contextWetter);
-
     return (
         <div>
-            
+            <h1>Wetter App</h1>
         </div>
     );
 }
