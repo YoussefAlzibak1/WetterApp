@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+// import React, { useContext } from 'react';
 
 const FuenfTagesVorschau = () => {
 
-    const {  } = useContext(contextWetter);
+    // const {  } = useContext(contextWetter); 
 
     return (
         <div>
-            
+            <p>Fünf Tages Wetter:</p>
         </div>
     );
 }
