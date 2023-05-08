@@ -1,3 +1,8 @@
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { ContextWetter } from "../context/ContextProvider";
 
@@ -53,48 +58,52 @@ const AktuellesWetter = () => {
     }, [sonnenAufGang]);
 
     return (
-        <div className="wetterdisplay display">
+        <div className="display">
             {wetterData && wetterData.cod !== "404" ? (
                 <>
-                    <p>
-                        {weekdayDe}{" "}
-                        {sunriseDate.toLocaleDateString("de-DE").slice(0, 3)}
-                    </p>
-                    <p className="gebiet">
-                        {sprache === "de"
-                            ? "Ort:"
-                            : sprache === "ar"
-                            ? "موقع:"
-                            : "Location:"}{" "}
-                        {wetterData.name}
-                    </p>
-                    <p className="temperatur"> {wetterData.main.temp}<span> °C</span></p>
-                    <p className="wetter"> {wetterData.weather[0].description}</p>
-                    <p>
-                        {sprache === "de"
+                    <div className="wetterdisplay">
+                        <p>
+                            {weekdayDe}{" "}
+                            {sunriseDate
+                                .toLocaleDateString("de-DE")
+                                .slice(0, 3)}
+                        </p>
+
+                        <p className="gebiet">
+                        <FontAwesomeIcon icon={faLocationDot} />
+                        {" "}
+                            {wetterData.name}</p>
+                        <p className="temperatur">
+                            {" "}
+                            {wetterData.main.temp.toFixed(0)}
+                            <span> °C</span>
+                        </p>
+                        <p className="wetter">
+                            {" "}
+                            {wetterData.weather[0].description}
+                        </p>
+                    </div>
+                    <div className="sonne">
+                        {sunriseDate.toLocaleTimeString()}{" "}
+                        <FontAwesomeIcon icon={faArrowUp} />{" "}
+                        {/* {sprache === "de"
                             ? "Sonnenaufgang:"
                             : sprache === "ar"
                             ? "شروق الشمس:"
-                            : "Sunrise:"}{" "}
-                        {sunriseDate.toLocaleTimeString()}
-                    </p>
-                    <p>
-                        {sprache === "de"
-                            ? "Sonnenunteruntergang:"
-                            : sprache === "ar"
-                            ? "غروب الشمس:"
-                            : "Sunset:"}{" "}
+                            : "Sunrise:"}{" "} */}
+                        <FontAwesomeIcon icon={faSun} />{" "}
+                        <FontAwesomeIcon icon={faArrowDown} />{" "}
                         {sunsetDate.toLocaleTimeString()}
-                    </p>
+                    </div>
                 </>
             ) : (
                 <h2>
                     {" "}
                     {sprache === "de"
-                        ? "Ort ist falsch"
+                        ? "Ort ist nicht bekannt"
                         : sprache === "ar"
                         ? "موقع خاطئ"
-                        : " Location is wrong"}{" "}
+                        : "wrong location"}{" "}
                 </h2>
             )}
         </div>

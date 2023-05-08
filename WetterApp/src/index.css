@@ -21,12 +21,12 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-  color: white;
+  color: #0b70cf;
   background: rgb(110, 205, 255);
   background: linear-gradient(
       180deg,
       rgba(110, 205, 255, 1) 0%,
-      rgba(255, 255, 255, 1) 18%,
+      rgba(255, 255, 255, 1) 8%,
       rgba(47, 183, 254, 1) 74%,
       rgba(110, 205, 255, 1) 100%
   );
@@ -40,13 +40,19 @@ header {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 1rem;
   line-height: 1.1;
 }
 
 h2 {
   font-size: 0.7rem;
   font-weight: 400;
+}
+
+.suchbox {
+  
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -57,11 +63,20 @@ button {
   padding: 10px;
 }
 
-input, option {
+input {
   border: 1px solid rgba(110, 205, 255, 1);
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
+}
+
+select {
+  border: 1px solid rgba(110, 205, 255, 1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  background-color: white;
 }
 
 .display {
@@ -73,16 +88,29 @@ input, option {
 }
 
 .wetterdisplay {
-  top: 120px;
-  padding-bottom: 10px ;
+  top: 100px;
+  padding-bottom: 5px ;
+  padding-top: 2.5px;
+  /* background-color: blue; */
+  border-radius: 10px;
 }
 
 .wetterdisplay2 {
-  top: 400px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  top: 357px;
+  /* background-color: aquamarine; */
+  border-radius: 10px;
+  line-height: 25%;
+  margin-top: 10px;
 }
 
+
+
 .gebiet {
-color:rgba(47, 183, 254, 1)
+color:rgba(47, 183, 254, 1);
+line-height: 0%;
 }
 
 .temperatur {
@@ -99,10 +127,21 @@ span {
 font-size: 40px;
 }
 
+.sonne {
+  /* background-color: aqua; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  line-height: 0%;
+  margin-top: 20px;
+
+}
+
 .fuenftageslink {
   bottom: 80px;
 }
 
 footer {
   bottom: 0px;
+  color: white
 }
