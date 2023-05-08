@@ -8,7 +8,8 @@ const AktuellesWetter = () => {
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
     const sunriseDate = new Date(sonnenAufGang * 1000);
     const sunsetDate = new Date(sonnenUnterGang * 1000);
-
+    
+    
     const wochenTageDe = [
         "Sonntag",
         "Montag",
@@ -51,6 +52,7 @@ const AktuellesWetter = () => {
         }
         sonneZeiten();
     }, [sonnenAufGang]);
+    console.log(wetterData.weather.icon);
 
     return (
         <div className="wetterdisplay display">
@@ -68,7 +70,7 @@ const AktuellesWetter = () => {
                             : "Location:"}{" "}
                         {wetterData.name}
                     </p>
-                    <p className="temperatur"> {wetterData.main.temp}</p>
+                    <p className="temperatur">    {wetterData.main.temp}</p>
                     <p className="wetter"> {wetterData.weather[0].description}</p>
                     <p>
                         {sprache === "de"
