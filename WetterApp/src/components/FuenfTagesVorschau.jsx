@@ -5,8 +5,8 @@ const FuenfTagesVorschau = () => {
     // const {  } = useContext(contextWetter); 
 
     return (
-        <div>
-            <p>Fünf Tages Wetter:</p>
+        <div className="fuenftageslink display">
+           <a href="https://www.wetter.com/">5 Tages Vorschau</a>
         </div>
     );
 }
