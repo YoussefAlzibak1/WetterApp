@@ -68,8 +68,7 @@ const AktuellesWetter = () => {
                             : "Location:"}{" "}
                         {wetterData.name}
                     </p>
-                    <p className="temperatur"> {wetterData.main.temp}<span> °C</span></p>
-                    <p className="wetter"> {wetterData.weather[0].description}</p>
+
                     <p>
                         {sprache === "de"
                             ? "Sonnenaufgang:"
