@@ -3,7 +3,7 @@
 const Wetter = () => {
      const { wetterData } = useContext(ContextWetter);
     return (
-        <div>
+        <div className="wetterdisplay2 display">
           {wetterData && (<p>Ort: {wetterData.wind.speed},</p>)}
             
             {wetterData && (<p>Temp: {wetterData.main.humidity}</p>)}
