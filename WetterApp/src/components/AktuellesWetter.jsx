@@ -1,9 +1,5 @@
-import { useContext ,useEffect,useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextWetter } from "../context/ContextProvider";
-
-
-
-
 
 const AktuellesWetter = () => {
     const { sprache, wetterData } = useContext(ContextWetter);
@@ -13,35 +9,96 @@ const AktuellesWetter = () => {
     const sunriseDate = new Date(sonnenAufGang * 1000);
     const sunsetDate = new Date(sonnenUnterGang * 1000);
 
-console.log(wetterData.cod,'77777777')
-    useEffect(()=>{ 
-        function sonneZeiten() {
-       
-  
-            setSonnenAufGang(wetterData.sys.sunrise)
-            setSonnenUnterGang(wetterData.sys.sunset)
-        
-        }
-        sonneZeiten() 
-},[sonnenAufGang])
- 
+    const wochenTageDe = [
+        "Sonntag",
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+    ];
+    const wochenTageAr = [
+        "الأحد",
+        "الإثنين",
+        "الثلاثاء",
+        "الأربعاء",
+        "الخميس",
+        "الجمعة",
+        "السبت",
+    ];
+    const wochenTageEn = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+
+    const weekdayDe =
+        sprache === "de"
+            ? wochenTageDe[sunriseDate.getDay()]
+            : sprache === "en"
+            ? wochenTageEn[sunriseDate.getDay()]
+                : wochenTageAr[sunriseDate.getDay()];
     
+    const imge= 
+    
+    
+    useEffect(() => {
+        function sonneZeiten() {
+            setSonnenAufGang(wetterData.sys.sunrise);
+            setSonnenUnterGang(wetterData.sys.sunset);
+        }
+        sonneZeiten();
+    }, [sonnenAufGang]);
 
     return (
         <div>
-            {wetterData && wetterData.cod !== '404' ? (
+            {wetterData && wetterData.cod !== "404" ? (
                 <>
-                    <p>{sunriseDate.toString().slice(0,10)}</p>
                     <p>
-                    {sprache === 'de' ? 'Ort:' : sprache === 'ar' ? 'موقع:' : 'Location:'}  { wetterData.name}
+                        {weekdayDe}{" "}
+                        {sunriseDate.toLocaleDateString("de-DE").slice(0, 3)}
                     </p>
-                    <p>  {wetterData.main.temp}</p>
-                    <p>  {wetterData.weather[0].description}</p>
-                    <p>{sprache === 'de' ? 'Sonnenaufgang:' : sprache === 'ar'?'شروق الشمس:' :'Sunrise:'} {sunriseDate.toLocaleTimeString() }</p>
-                    <p>{sprache === 'de' ? 'Sonnenunteruntergang:' : sprache === 'ar'?'غروب الشمس:' :'Sunset:'} {sunsetDate.toLocaleTimeString() }</p>
+                    <p>
+                        {sprache === "de"
+                            ? "Ort:"
+                            : sprache === "ar"
+                            ? "موقع:"
+                            : "Location:"}{" "}
+                        {wetterData.name}
+                    </p>
+                    <p> {wetterData.main.temp}</p>
+                    <p> {wetterData.weather[0].description}</p>
+                    <p>
+                        {sprache === "de"
+                            ? "Sonnenaufgang:"
+                            : sprache === "ar"
+                            ? "شروق الشمس:"
+                            : "Sunrise:"}{" "}
+                        {sunriseDate.toLocaleTimeString()}
+                    </p>
+                    <p>
+                        {sprache === "de"
+                            ? "Sonnenunteruntergang:"
+                            : sprache === "ar"
+                            ? "غروب الشمس:"
+                            : "Sunset:"}{" "}
+                        {sunsetDate.toLocaleTimeString()}
+                    </p>
                 </>
             ) : (
-                <h2> {sprache === 'de' ? 'Ort ist Falsche' : sprache === 'ar'? 'موقع خاطئ' :' Location is wrong'} </h2>
+                <h2>
+                    {" "}
+                    {sprache === "de"
+                        ? "Ort ist Falsche"
+                        : sprache === "ar"
+                        ? "موقع خاطئ"
+                        : " Location is wrong"}{" "}
+                </h2>
             )}
         </div>
     );
