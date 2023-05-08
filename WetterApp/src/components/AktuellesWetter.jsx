@@ -68,7 +68,7 @@ const AktuellesWetter = () => {
                             : "Location:"}{" "}
                         {wetterData.name}
                     </p>
-                    <p> {wetterData.main.temp}</p>
+                    <p>    {wetterData.main.temp}</p>
                     <p> {wetterData.weather[0].description}</p>
                     <p>
                         {sprache === "de"
