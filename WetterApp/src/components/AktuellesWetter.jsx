@@ -42,11 +42,8 @@ const AktuellesWetter = () => {
             ? wochenTageDe[sunriseDate.getDay()]
             : sprache === "en"
             ? wochenTageEn[sunriseDate.getDay()]
-                : wochenTageAr[sunriseDate.getDay()];
-    
-    const imge= 
-    
-    
+            : wochenTageAr[sunriseDate.getDay()];
+
     useEffect(() => {
         function sonneZeiten() {
             setSonnenAufGang(wetterData.sys.sunrise);
@@ -56,7 +53,7 @@ const AktuellesWetter = () => {
     }, [sonnenAufGang]);
 
     return (
-        <div>
+        <div className="wetterdisplay display">
             {wetterData && wetterData.cod !== "404" ? (
                 <>
                     <p>

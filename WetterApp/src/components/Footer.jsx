@@ -1,13 +1,17 @@
-import React from 'react';
+
 
 const Footer = () => {
     return (
-        <footer>
-            <h2>Wetter App by 
-                Nancy Klemm & Youssef Alzibak </h2>
-            
+
+        <footer className="display">
+            <h2>
+                Wetter App by
+                <br />
+                Youssef Alzibak & Nancy Klemm
+            </h2>
+
         </footer>
     );
-}
+};
 
 export default Footer;
