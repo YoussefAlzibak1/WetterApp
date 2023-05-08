@@ -8,8 +8,44 @@ const AktuellesWetter = () => {
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
     const sunriseDate = new Date(sonnenAufGang * 1000);
     const sunsetDate = new Date(sonnenUnterGang * 1000);
-    
-    
+    const [icon, setIcon] = useState(null);
+    useEffect(() => {
+        if (wetterData) {
+            switch (wetterData.weather[0].icon) {
+                case "01d":
+                    setIcon("http://openweathermap.org/img/wn/01d@2x.png");
+                    break;
+                case "02d":
+                    setIcon("http://openweathermap.org/img/wn/02d@2x.png");
+                    break;
+                case "03d":
+                    setIcon("http://openweathermap.org/img/wn/03d@2x.png");
+                    break;
+                case "04d":
+                    setIcon("http://openweathermap.org/img/wn/04d@2x.png");
+                    break;
+                case "09d":
+                    setIcon("http://openweathermap.org/img/wn/09d@2x.png");
+                    break;
+                case "10d":
+                    setIcon("http://openweathermap.org/img/wn/10d@2x.png");
+                    break;
+                case "11d":
+                    setIcon("http://openweathermap.org/img/wn/11d@2x.png");
+                    break;
+                case "13d":
+                    setIcon("http://openweathermap.org/img/wn/13d@2x.png");
+                    break;
+                case "50d":
+                    setIcon("http://openweathermap.org/img/wn/50d@2x.png");
+                    break;
+                default:
+                    setIcon(null);
+            }
+        }
+    }, [wetterData]);
+
+    console.log(icon);
     const wochenTageDe = [
         "Sonntag",
         "Montag",
@@ -37,7 +73,7 @@ const AktuellesWetter = () => {
         "Friday",
         "Saturday",
     ];
-
+    console.log(sunriseDate.getDay());
     const weekdayDe =
         sprache === "de"
             ? wochenTageDe[sunriseDate.getDay()]
@@ -52,7 +88,6 @@ const AktuellesWetter = () => {
         }
         sonneZeiten();
     }, [sonnenAufGang]);
-    console.log(wetterData.weather.icon);
 
     return (
         <div className="wetterdisplay display">
@@ -70,8 +105,20 @@ const AktuellesWetter = () => {
                             : "Location:"}{" "}
                         {wetterData.name}
                     </p>
-                    <p className="temperatur">    {wetterData.main.temp}</p>
-                    <p className="wetter"> {wetterData.weather[0].description}</p>
+
+                    <p className="temperatur">
+                        {" "}
+                        <img
+                            src={`${icon}`}
+                            alt=""
+                            style={{ width: "100px", zIndex: 9999 }}
+                        />{" "}
+                        {wetterData.main.temp}
+                    </p>
+                    <p className="wetter">
+                        {" "}
+                        {wetterData.weather[0].description}
+                    </p>
                     <p>
                         {sprache === "de"
                             ? "Sonnenaufgang:"
