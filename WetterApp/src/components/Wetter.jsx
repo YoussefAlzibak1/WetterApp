@@ -3,7 +3,7 @@ import { ContextWetter } from "../context/ContextProvider";
 const Wetter = () => {
     const { sprache, wetterData } = useContext(ContextWetter);
     return (
-        <div>
+        <div className="wetterdisplay2 display">
             {wetterData && wetterData.cod !== "404" ? (
                 <>
                     <p>
