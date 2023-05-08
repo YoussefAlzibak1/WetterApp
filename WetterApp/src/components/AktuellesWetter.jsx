@@ -13,37 +13,35 @@ const AktuellesWetter = () => {
     const sunriseDate = new Date(sonnenAufGang * 1000);
     const sunsetDate = new Date(sonnenUnterGang * 1000);
 
-
+console.log(wetterData.cod,'77777777')
     useEffect(()=>{ 
-        function naaae() {
+        function sonneZeiten() {
        
   
             setSonnenAufGang(wetterData.sys.sunrise)
             setSonnenUnterGang(wetterData.sys.sunset)
         
         }
-        naaae() 
+        sonneZeiten() 
 },[sonnenAufGang])
  
     
-  console.log(sunriseDate);
+
     return (
         <div>
-            {wetterData ? (
+            {wetterData && wetterData.cod !== '404' ? (
                 <>
                     <p>{sunriseDate.toString().slice(0,10)}</p>
                     <p>
-                    {sprache === 'de' ? 'Ort:' : sprache === 'ar' ? 'موقع:' : 'Location:'}  {wetterData.name}
+                    {sprache === 'de' ? 'Ort:' : sprache === 'ar' ? 'موقع:' : 'Location:'}  { wetterData.name}
                     </p>
-                    <p> {sprache === 'ar' ? 'درجة حرارة:' :  'Temp::'} {wetterData.main.temp}</p>
-                    <p> {sprache === 'de' ? 'Beschreibung:' : ':'} {wetterData.weather[0].description}</p>
-                    <p>Sonnenaufgang: {sunriseDate.toLocaleTimeString() }</p>
-
-
-                    <p>Sonnenunterntergang: {sunsetDate.toLocaleTimeString() }</p>
+                    <p>  {wetterData.main.temp}</p>
+                    <p>  {wetterData.weather[0].description}</p>
+                    <p>{sprache === 'de' ? 'Sonnenaufgang:' : sprache === 'ar'?'شروق الشمس:' :'Sunrise:'} {sunriseDate.toLocaleTimeString() }</p>
+                    <p>{sprache === 'de' ? 'Sonnenunteruntergang:' : sprache === 'ar'?'غروب الشمس:' :'Sunset:'} {sunsetDate.toLocaleTimeString() }</p>
                 </>
             ) : (
-                <h2> Ort ist Falsche </h2>
+                <h2> {sprache === 'de' ? 'Ort ist Falsche' : sprache === 'ar'? 'موقع خاطئ' :' Location is wrong'} </h2>
             )}
         </div>
     );

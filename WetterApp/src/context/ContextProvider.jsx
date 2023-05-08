@@ -27,7 +27,7 @@ function ContextProvider({ children }) {
                 setWetterData(data);
                 setIsLoading(false);
             } catch (error) {
-                console.error(error);
+                console.error(error,'Ort ist nicht bekannt');
             }
         },
         [url]
