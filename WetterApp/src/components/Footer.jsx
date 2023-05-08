@@ -2,10 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <h4>Wetter App by Nancy  & Youssef </h4>
+        <footer>
+            <h2>Wetter App by 
+                Nancy Klemm & Youssef Alzibak </h2>
             
-        </div>
+        </footer>
     );
 }
 

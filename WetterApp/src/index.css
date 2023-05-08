@@ -57,7 +57,7 @@ button {
     padding: 10px;
 }
 
-input {
+input, option {
     border: 1px solid rgba(110, 205, 255, 1);
     border-radius: 10px;
     padding: 10px;
