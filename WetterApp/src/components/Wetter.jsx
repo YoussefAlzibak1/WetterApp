@@ -13,7 +13,7 @@ const Wetter = () => {
                             : sprache === "ar"
                             ? "سرعة الرياح:"
                             : "Wind Speed:"}
-                        {wetterData.wind.speed} km/h,
+                        {wetterData.wind.speed} km/h
                     </p>
                     <p>
                         {" "}
