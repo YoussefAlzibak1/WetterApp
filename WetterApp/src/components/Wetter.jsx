@@ -13,7 +13,7 @@ const Wetter = () => {
                             : sprache === "ar"
                             ? "سرعة الرياح:"
                             : "Wind Speed:"}
-                        {wetterData.wind.speed},
+                        {wetterData.wind.speed} km/h,
                     </p>
                     <p>
                         {" "}
@@ -22,7 +22,7 @@ const Wetter = () => {
                             : sprache === "ar"
                             ? "رطوبة الجو:"
                             : "Air Humidity :"}{" "}
-                        {wetterData.main.humidity}
+                        {wetterData.main.humidity} %
                     </p>
                     <p>
                         {" "}
@@ -31,7 +31,7 @@ const Wetter = () => {
                             : sprache === "ar"
                             ? "أقصى درجة حرارة:"
                             : "Max Temperature:"}{" "}
-                        {wetterData.main.temp_max}
+                        {wetterData.main.temp_max} °C
                     </p>
                     <p>
                         {" "}
@@ -40,7 +40,7 @@ const Wetter = () => {
                             : sprache === "ar"
                             ? "أقل درجة حرارة:"
                             : "Min Temperature:"}
-                        {wetterData.main.temp_min}
+                        {wetterData.main.temp_min} °C
                     </p>
                 </>
             ) : (

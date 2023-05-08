@@ -60,7 +60,7 @@ const AktuellesWetter = () => {
                         {weekdayDe}{" "}
                         {sunriseDate.toLocaleDateString("de-DE").slice(0, 3)}
                     </p>
-                    <p>
+                    <p className="gebiet">
                         {sprache === "de"
                             ? "Ort:"
                             : sprache === "ar"
@@ -68,8 +68,8 @@ const AktuellesWetter = () => {
                             : "Location:"}{" "}
                         {wetterData.name}
                     </p>
-                    <p> {wetterData.main.temp}</p>
-                    <p> {wetterData.weather[0].description}</p>
+                    <p className="temperatur"> {wetterData.main.temp}</p>
+                    <p className="wetter"> {wetterData.weather[0].description}</p>
                     <p>
                         {sprache === "de"
                             ? "Sonnenaufgang:"
@@ -91,7 +91,7 @@ const AktuellesWetter = () => {
                 <h2>
                     {" "}
                     {sprache === "de"
-                        ? "Ort ist Falsche"
+                        ? "Ort ist falsch"
                         : sprache === "ar"
                         ? "موقع خاطئ"
                         : " Location is wrong"}{" "}
