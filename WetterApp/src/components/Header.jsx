@@ -1,10 +1,9 @@
-import React from "react";
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <h1>Wetter App</h1>
-        </div>
+        </header>
     );
 };
 
