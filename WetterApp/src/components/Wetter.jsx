@@ -1,9 +1,9 @@
- import { useContext } from 'react';
- import { ContextWetter } from '../context/ContextProvider';
+import { useContext } from "react";
+import { ContextWetter } from "../context/ContextProvider";
 const Wetter = () => {
-     const { wetterData } = useContext(ContextWetter);
+    const { sprache, wetterData } = useContext(ContextWetter);
     return (
-        <div className="wetterdisplay2 display">
+        <div>
           {wetterData && (<p>Ort: {wetterData.wind.speed},</p>)}
             
             {wetterData && (<p>Temp: {wetterData.main.humidity}</p>)}
@@ -12,6 +12,6 @@ const Wetter = () => {
             {wetterData && (<p>{wetterData.main.temp_min}</p>)}
         </div>
     );
-}
+};
 
 export default Wetter;

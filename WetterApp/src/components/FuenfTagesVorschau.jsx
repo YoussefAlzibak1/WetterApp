@@ -1,12 +1,13 @@
-// import React, { useContext } from 'react';
 
+import { useContext } from "react";
+import { ContextWetter } from "../context/ContextProvider";
 const FuenfTagesVorschau = () => {
-
-    // const {  } = useContext(contextWetter); 
+    const { sprache} = useContext(ContextWetter);
+    
 
     return (
-        <div className="fuenftageslink display">
-           <a href="https://www.wetter.com/">5 Tages Vorschau</a>
+        <div>
+            <p>Fünf Tages Wetter:</p>
         </div>
     );
 }
