@@ -2,18 +2,20 @@ import './App.css'
 import AktuellesWetter from './components/AktuellesWetter'
 import FuenfTagesVorschau from './components/FuenfTagesVorschau'
 import Header from './components/Header'
-import StundenWetter from './components/StundenWetter'
+import Wetter from './components/Wetter'
 import Footer from './components/Footer'
 import ContextProvider from './context/ContextProvider'
-
+import Input from './components/Input'
 function App() {
   
   return (
     <>
-      < Header/>
+      < Header />
+    
       < ContextProvider>
+      <Input />
       < AktuellesWetter />
-      < StundenWetter />
+      < Wetter />
       < FuenfTagesVorschau />
       </ContextProvider>
       < Footer />
