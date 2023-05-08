@@ -10,15 +10,15 @@ function Input() {
     };
 
     return (
-        <div>
+        <div className="suchbox">
             <form>
                 <select
                     value={sprache}
                     onChange={(event) => setSprache(event.target.value)}
                 >
-                    <option value="de">Deutsch</option>
-                    <option value="en">English</option>
-                    <option value="ar">Arabic</option>
+                    <option value="de">DE</option>
+                    <option value="en">EN</option>
+                    <option value="ar">AR</option>
                 </select>
 
                 <input

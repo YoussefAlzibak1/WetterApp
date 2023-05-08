@@ -9,7 +9,7 @@ import Input from './components/Input'
 function App() {
   
   return (
-    <>
+    <div className='container'>
       < Header />
     
       < ContextProvider>
@@ -20,7 +20,7 @@ function App() {
       </ContextProvider>
       < Footer />
 
-    </>
+    </div>
   )
 }
 

@@ -1,5 +1,11 @@
+import { faWind } from "@fortawesome/free-solid-svg-icons";
+import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
+import { faTemperatureArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faTemperatureArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { ContextWetter } from "../context/ContextProvider";
+
 const Wetter = () => {
     const { sprache, wetterData } = useContext(ContextWetter);
     return (
@@ -8,38 +14,27 @@ const Wetter = () => {
             {wetterData && wetterData.cod !== "404" ? (
                 <>
                     <p>
-                        {sprache === "de"
-                            ? "Windgeschwindigkeit:"
+                    <FontAwesomeIcon icon={faWind} />
+                        {/* {sprache === "de"
+                            ? "Windgeschwindigkeit: "
                             : sprache === "ar"
                             ? "سرعة الرياح:"
-                            : "Wind Speed:"}
-                        {wetterData.wind.speed} km/h
+                            : "Wind Speed:"} */}
+                        {" "}{wetterData.wind.speed} km/h
                     </p>
                     <p>
-                        {" "}
-                        {sprache === "de"
-                            ? "Luftfreuchtigkeit:"
-                            : sprache === "ar"
-                            ? "رطوبة الجو:"
-                            : "Air Humidity :"}{" "}
-                        {wetterData.main.humidity} %
+                    <FontAwesomeIcon icon={faUmbrella} />
+                        {" "}{wetterData.main.humidity} %
                     </p>
                     <p>
+                    <FontAwesomeIcon icon={faTemperatureArrowUp} />
                         {" "}
-                        {sprache === "de"
-                            ? "Höchste Temperatur:"
-                            : sprache === "ar"
-                            ? "أقصى درجة حرارة:"
-                            : "Max Temperature:"}{" "}
                         {wetterData.main.temp_max} °C
                     </p>
                     <p>
+                    <FontAwesomeIcon icon={faTemperatureArrowDown} />
                         {" "}
-                        {sprache === "de"
-                            ? "Niedrigste Temperatur:"
-                            : sprache === "ar"
-                            ? "أقل درجة حرارة:"
-                            : "Min Temperature:"}
+                        
                         {wetterData.main.temp_min} °C
                     </p>
                 </>
