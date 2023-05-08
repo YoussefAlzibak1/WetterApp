@@ -98,7 +98,33 @@ const AktuellesWetter = () => {
         <div className="display">
             {wetterData && wetterData.cod !== "404" ? (
                 <>
-
+                    <div className="wetterdisplay">
+                        <p>
+                            {weekdayDe}{" "}
+                            {sunriseDate
+                                .toLocaleDateString("de-DE")
+                                .slice(0, 3)}
+                        </p>
+                        <p className="gebiet">
+                       <div> <img src={`${icon}`} /></div>
+                        <FontAwesomeIcon icon={faLocationDot} />
+                            {" "}
+                           
+                            {wetterData.name}</p>
+                        <p className="temperatur">
+                            {" "}
+                            {wetterData.main.temp.toFixed(0)}
+                            <span> °C</span>
+                        </p>
+                        <p className="wetter">
+                            {" "}
+                            {wetterData.weather[0].description}
+                        </p>
+                    </div>
+                    <div className="sonne">
+                        {sunriseDate.toLocaleTimeString()}{" "}
+                        <FontAwesomeIcon icon={faArrowUp} />{" "}
+                        {/* {sprache === "de"
                             ? "Sonnenaufgang:"
                             : sprache === "ar"
                             ? "شروق الشمس:"
@@ -110,7 +136,7 @@ const AktuellesWetter = () => {
                 </>
             ) : (
                 <h2>
-                    {" "} 
+                    {" "}
                     {sprache === "de"
                         ? "Ort ist nicht bekannt"
                         : sprache === "ar"
@@ -121,5 +147,6 @@ const AktuellesWetter = () => {
         </div>
     );
 };
-
 export default AktuellesWetter;
+
+
