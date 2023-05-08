@@ -98,7 +98,7 @@ const AktuellesWetter = () => {
                 </>
             ) : (
                 <h2>
-                    {" "}
+                    {" "} 
                     {sprache === "de"
                         ? "Ort ist nicht bekannt"
                         : sprache === "ar"
