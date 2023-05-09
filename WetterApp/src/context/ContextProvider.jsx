@@ -47,6 +47,7 @@ function ContextProvider({ children }) {
             try {
                 const response = await fetch(url);
                 const data = await response.json();
+                
                 setWetterData(data);
                 setIsLoading(false);
             } catch (error) {

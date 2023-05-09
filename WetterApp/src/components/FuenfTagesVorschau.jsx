@@ -11,7 +11,7 @@ const FuenfTagesVorschau = () => {
     const filteredWetterData = wetterDataTag?.list
         .slice(0, 42)
         .filter((_, index) => index % 9 === 0);
-    console.log(filteredWetterData);
+    // console.log(filteredWetterData);
     const getDayOfWeek = (dateString) => {
         const daysOfWeek =
             sprache === "en"
@@ -23,7 +23,7 @@ const FuenfTagesVorschau = () => {
         return daysOfWeek[date.getDay()];
     };
     if (!wetterDataTag || wetterDataTag.cod === "404") {
-        return null;
+        return null
     }
     return (
         <div className="fuenftageslink display">
@@ -39,24 +39,24 @@ const FuenfTagesVorschau = () => {
                             alt=""
                         />
                         <div className="wetterdata-item">
-                            <p>{wetterData.main.temp}</p>
+                            <p>{wetterData.main.temp.toFixed()} °C</p>
                         </div>
                         <div className="wetterdata-item">
                             <p>{wetterData.weather[0].description}</p>
                         </div>
                         <div className="wetterdata-item">
-                            <p>{wetterData.wind.speed}</p>
+                            <p>{wetterData.wind.speed} km/h</p>
                         </div>
                     </div>
                 ))}
             </div>
 
             <p>
-                {sprache === "de"
+                {/* {sprache === "de"
                     ? "Fünf Tages Wettervorschau"
                     : sprache === "ar"
                     ? "توقعات الطقس لمدة خمسة أيام"
-                    : "Five day weather forecast"}
+                    : "Five day weather forecast"} */}
             </p>
         </div>
     );

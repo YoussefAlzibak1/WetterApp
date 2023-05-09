@@ -1,14 +1,19 @@
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { ContextWetter } from "../context/ContextProvider";
+import {
+    faLocationDot,
+    faSortUp,
+    faSun,
+    faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AktuellesWetter = () => {
     const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn } =
         useContext(ContextWetter);
+
+       
+
     // console.log(wetterData);
     const [sonnenAufGang, setSonnenAufGang] = useState(0);
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
@@ -22,6 +27,9 @@ const AktuellesWetter = () => {
         setSonnenAufGang(wetterData.sys.sunrise);
         setSonnenUnterGang(wetterData.sys.sunset);
     }
+
+    // console.log("_________", wetterData);
+
     useEffect(() => {
         sonneZeiten();
     }, [sonnenAufGang]);
@@ -32,6 +40,11 @@ const AktuellesWetter = () => {
             : sprache === "en"
             ? wochenTageEn[sunriseDate.getDay()]
             : wochenTageAr[sunriseDate.getDay()];
+
+            
+
+
+
     return (
         <div className="display">
             {wetterData && wetterData.cod !== "404" ? (
@@ -66,9 +79,9 @@ const AktuellesWetter = () => {
                     </div>
                     <div className="sonne">
                         {sunriseDate.toLocaleTimeString()}{" "}
-                        <FontAwesomeIcon icon={faArrowUp} />{" "}
+                        <FontAwesomeIcon icon={faSortUp} className="fa-2xs" />{" "}
                         <FontAwesomeIcon icon={faSun} />{" "}
-                        <FontAwesomeIcon icon={faArrowDown} />{" "}
+                        <FontAwesomeIcon icon={faSortDown} className="fa-2xs" />{" "}
                         {sunsetDate.toLocaleTimeString()}
                     </div>
                 </>

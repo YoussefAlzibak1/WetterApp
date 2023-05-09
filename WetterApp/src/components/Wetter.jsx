@@ -14,7 +14,7 @@ const Wetter = () => {
                 <>
                     <p>
                         <FontAwesomeIcon icon={faWind} />
-                       
+                       {" "}
                         {wetterData.wind.speed} km/h
                     </p>
                     <p>
@@ -23,11 +23,11 @@ const Wetter = () => {
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faTemperatureArrowUp} />{" "}
-                        {wetterData.main.temp_max} °C
+                        {wetterData.main.temp_max.toFixed(0)} °C
                     </p>
                     <p>
                         <FontAwesomeIcon icon={faTemperatureArrowDown} />{" "}
-                        {wetterData.main.temp_min} °C
+                        {wetterData.main.temp_min.toFixed(0)} °C
                     </p>
                 </>
             ) : (
