@@ -7,7 +7,7 @@ const Footer = () => {
             <h2>
                 Wetter App by
                 <br />
-                Youssef Alzibak & Nancy Klemm
+                 Nancy Klemm & Youssef Alzibak 
             </h2>
 
         </footer>

@@ -114,7 +114,7 @@ line-height: 0%;
 }
 
 .temperatur {
-font-size: 60px;
+font-size: 50px;
 line-height: 0%;
 
 }
@@ -133,15 +133,35 @@ font-size: 40px;
   padding-bottom: 5px;
   border-radius: 10px;
   line-height: 0%;
-  margin-top: 20px;
+  margin-top: 35px;
 
 }
 
 .fuenftageslink {
-  bottom: 80px;
+  bottom: 40px;
+  margin: 0 auto;
+  padding: 15px;
 }
 
 footer {
   bottom: 0px;
   color: white
+}
+.wetterdata-countener{
+display: flex;
+flex-direction: row;
+font-size: 10px;
+line-height: 1px;
+
+
+
+
+}
+
+.img_fuenf_tage{
+  width: 40px;
+}
+
+.img_tags_schau{
+  width: 80px;
 }

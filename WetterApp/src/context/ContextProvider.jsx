@@ -1,26 +1,47 @@
-import React, { useCallback, useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Spinner from "../components/Spiner";
 
 export const ContextWetter = React.createContext();
 
 // eslint-disable-next-line react/prop-types
 function ContextProvider({ children }) {
-    const [wetterData, setWetterData] = useState("");
-    const [wetterDataTag, setWetterDataTag] = useState("");
+    const [wetterData, setWetterData] = useState(null);
+    const [wetterDataTag, setWetterDataTag] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [sprache, setSprache] = useState("de");
     const [ort, setOrt] = useState("Berlin");
-    console.log(wetterDataTag);
-console.log();
-    // const [aktuellesWetter, setAktuellesWetter] = useState('')
-    // const [tagSchau, setTagSchau] = useState('')
-    // const [stundenWetter, setStundenWetter] = useState('')
-
-    // const Apikey='35359f393fc9175c0503c48ce272fbad'
-const urlDay=`https://api.openweathermap.org/data/2.5/forecast?q=${ort}&lang=${sprache}&appid=33a793b29df1394a38e1a1b8c9bc0eda&units=metric`
+  
+    const wochenTageDe = [
+        "Sonntag",
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+    ];
+    const wochenTageAr = [
+        "الأحد",
+        "الإثنين",
+        "الثلاثاء",
+        "الأربعاء",
+        "الخميس",
+        "الجمعة",
+        "السبت",
+    ];
+    const wochenTageEn = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const urlDay = `https://api.openweathermap.org/data/2.5/forecast?q=${ort}&lang=${sprache}&appid=33a793b29df1394a38e1a1b8c9bc0eda&units=metric`;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ort}&lang=${sprache}&appid=33a793b29df1394a38e1a1b8c9bc0eda&units=metric`;
 
-    console.log(wetterData);
+    console.log(wetterDataTag);
     const fetchData = useCallback(
         async function fetchWetter() {
             try {
@@ -29,7 +50,7 @@ const urlDay=`https://api.openweathermap.org/data/2.5/forecast?q=${ort}&lang=${s
                 setWetterData(data);
                 setIsLoading(false);
             } catch (error) {
-                console.error(error,'Ort ist nicht bekannt');
+                console.error(error, "Ort ist nicht bekannt");
             }
             try {
                 const response = await fetch(urlDay);
@@ -37,10 +58,10 @@ const urlDay=`https://api.openweathermap.org/data/2.5/forecast?q=${ort}&lang=${s
                 setWetterDataTag(dataTag);
                 setIsLoading(false);
             } catch (error) {
-                console.error(error,'Ort ist nicht bekannt');
+                console.error(error, "Ort ist nicht bekannt");
             }
         },
-        [url]
+        [url, urlDay]
     );
 
     useEffect(() => {
@@ -53,7 +74,19 @@ const urlDay=`https://api.openweathermap.org/data/2.5/forecast?q=${ort}&lang=${s
 
     return (
         <ContextWetter.Provider
-            value={{ wetterData, isLoading, setOrt, ort, setSprache, sprache }}
+            value={{
+                wochenTageAr,
+                wochenTageDe,
+                wochenTageEn,
+                wetterDataTag,
+                wetterData,
+                isLoading,
+                setOrt,
+                ort,
+                setSprache,
+                sprache,
+              
+            }}
         >
             {children}
         </ContextWetter.Provider>
