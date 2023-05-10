@@ -98,7 +98,7 @@ select {
   display: flex;
   justify-content: center;
   gap: 12px;
-  top: 375px;
+  top: 367px;
   /* background-color: aquamarine; */
   text-align: center;
   position: absolute;
@@ -132,35 +132,44 @@ font-size: 40px;
 .sonne {
   /* background-color: aqua; */
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   border-radius: 10px;
   line-height: 0%;
-  margin-top: 35px;
+  margin-top: 15px;
  
 
 }
 
 .fuenftageslink {
-  bottom: 65px;
-  margin: 0 auto;
+  position: absolute;
+  bottom: 63px;
+ 
+  /* margin: 0 auto; */
+  /* background-color: aquamarine; */
   
 }
 
 footer {
   bottom: 0px;
-  color: white
+  color: #0b70cf;
 }
 .wetterdata-countener{
 display: flex;
 flex-direction: row;
-justify-content:;
+justify-content:space-around;
 gap: 10px;
 font-size: 10px;
 line-height: 1px;
+padding-inline: 10px;
 
+}
 
+.fuenf {
+  line-height: normal;
+}
 
-
+.windspeed {
+  line-height: normal;
 }
 
 .img_fuenf_tage{

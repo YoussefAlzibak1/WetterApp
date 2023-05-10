@@ -42,6 +42,7 @@ const FuenfTagesVorschau = () => {
                         </div>
                         <div className="wetterdata-item">
                             <p className="windspeed">
+
                                 {wetterData.wind.speed} km/h
                             </p>
                         </div>
