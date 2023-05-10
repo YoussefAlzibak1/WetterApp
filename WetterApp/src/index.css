@@ -144,8 +144,9 @@ font-size: 40px;
   position: absolute;
   bottom: 63px;
  
-  /* margin: 0 auto; */
+  margin: 0 auto;
   /* background-color: aquamarine; */
+  height: 140px;
   
 }
 
