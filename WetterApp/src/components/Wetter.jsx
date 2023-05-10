@@ -1,7 +1,9 @@
-import { faWind } from "@fortawesome/free-solid-svg-icons";
-import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
-import { faTemperatureArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { faTemperatureArrowDown } from "@fortawesome/free-solid-svg-icons";
+import {
+    faWind,
+    faUmbrella,
+    faTemperatureArrowUp,
+    faTemperatureArrowDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { ContextWetter } from "../context/ContextProvider";
@@ -9,12 +11,11 @@ import { ContextWetter } from "../context/ContextProvider";
 const Wetter = () => {
     const { wetterData } = useContext(ContextWetter);
     return (
-        <div className="wetterdisplay2 display">
+        <div className="wetterdisplay2">
             {wetterData && wetterData.cod !== "404" ? (
                 <>
                     <p>
-                        <FontAwesomeIcon icon={faWind} />
-                       {" "}
+                        <FontAwesomeIcon icon={faWind} />{" "}
                         {wetterData.wind.speed} km/h
                     </p>
                     <p>

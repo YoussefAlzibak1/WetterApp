@@ -1,5 +1,8 @@
 import { useContext } from "react";
 import { ContextWetter } from "../context/ContextProvider";
+// import { faWind } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const FuenfTagesVorschau = () => {
     const { wetterDataTag, sprache, wochenTageAr, wochenTageDe, wochenTageEn } =
         useContext(ContextWetter);
@@ -45,7 +48,10 @@ const FuenfTagesVorschau = () => {
                             <p>{wetterData.weather[0].description}</p>
                         </div>
                         <div className="wetterdata-item">
-                            <p>{wetterData.wind.speed} km/h</p>
+                            <p>
+                                {/* <FontAwesomeIcon icon={faWind}/> */}{" "}
+                                {wetterData.wind.speed} km/h
+                            </p>
                         </div>
                     </div>
                 ))}

@@ -9,10 +9,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AktuellesWetter = () => {
-    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn } =
+    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn, icon } =
         useContext(ContextWetter);
-
-       
 
     // console.log(wetterData);
     const [sonnenAufGang, setSonnenAufGang] = useState(0);
@@ -22,6 +20,8 @@ const AktuellesWetter = () => {
     const [iconTag] = useState(
         `http://openweathermap.org/img/wn/${wetterData?.weather[0].icon}@2x.png`
     );
+
+    console.log("ooooooooooooo",iconTag);
 
     function sonneZeiten() {
         setSonnenAufGang(wetterData.sys.sunrise);
@@ -41,10 +41,6 @@ const AktuellesWetter = () => {
             ? wochenTageEn[sunriseDate.getDay()]
             : wochenTageAr[sunriseDate.getDay()];
 
-            
-
-
-
     return (
         <div className="display">
             {wetterData && wetterData.cod !== "404" ? (
@@ -57,21 +53,21 @@ const AktuellesWetter = () => {
                                 .slice(0, 3)}
                         </p>
                         <p className="gebiet">
-                            <div>
-                                {" "}
-                                <img
-                                    className="img_tags_schau"
-                                    src={`${iconTag}`}
-                                />
-                            </div>
                             <FontAwesomeIcon icon={faLocationDot} />{" "}
                             {wetterData.name}
                         </p>
                         <p className="temperatur">
                             {" "}
-                            {wetterData.main.temp.toFixed(0)}
+                            {wetterData.main.temp.toFixed()}
                             <span> °C</span>
                         </p>
+                        <span>
+                            {" "}
+                            <img
+                                className="img_tags_schau"
+                                src={`${icon}`}
+                            />
+                        </span>
                         <p className="wetter">
                             {" "}
                             {wetterData.weather[0].description}
