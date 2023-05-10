@@ -1,51 +1,51 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextWetter } from "../context/ContextProvider";
-import {iconWetter} from '../actions/globalVariable'
+import {iconWetter} from '../actions/globalVariable'//icon Funktion
 import {
     faLocationDot,
     faSortUp,
     faSun,
     faSortDown,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AktuellesWetter = () => {
-    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn, } =
+    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn,isError } =
         useContext(ContextWetter);
-
-    // console.log(wetterData);
     const [sonnenAufGang, setSonnenAufGang] = useState(0);
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
-    const sunriseDate = new Date(sonnenAufGang * 1000);
-    const sunsetDate = new Date(sonnenUnterGang * 1000);
-    function sonneZeiten() {
-        setSonnenAufGang(wetterData.sys.sunrise);
-        setSonnenUnterGang(wetterData.sys.sunset);
-    }
-
-    // console.log("_________", wetterData);
-
-    useEffect(() => {
-        sonneZeiten();
-    }, [sonnenAufGang]);
-
+    const sunriseDate = new Date(sonnenAufGang * 1000);// rechnung von miele secunden
+    const sunsetDate = new Date(sonnenUnterGang * 1000);// rechnung von miele secunden
+    //bearbeitung die Tage in verschedene Sprachen
     const weekdayDe =
         sprache === "de"
             ? wochenTageDe[sunriseDate.getDay()]
             : sprache === "en"
             ? wochenTageEn[sunriseDate.getDay()]
             : wochenTageAr[sunriseDate.getDay()];
+    // Sonnen Zeiten 
+    function sonneZeiten() {
+        setSonnenAufGang(wetterData.sys.sunrise);
+        setSonnenUnterGang(wetterData.sys.sunset);
+    }
+    useEffect(() => {
+        sonneZeiten();
+    }, [sonnenAufGang]);
+
 
     return (
         <div className="display">
-            {wetterData && wetterData.cod !== "404" ? (
+            
+            {/* isError**  wenn keine data noch für handen sind  */}
+            {!isError ? (
                 <>
                     <div className="wetterdisplay">
                         <p>
+                            {/* tag und datum  */}
                             {weekdayDe}{" "}
                             {sunriseDate
                                 .toLocaleDateString("de-DE")
-                                .slice(0, 3)}
+                                .slice(0, 5)}
                         </p>
                         <p className="gebiet">
                             <FontAwesomeIcon icon={faLocationDot} />{" "}
@@ -61,6 +61,7 @@ const AktuellesWetter = () => {
                             <img
                                 className="img_tags_schau"
                                 src={`${iconWetter(wetterData?.weather[0].icon)}`}
+                                // iconWetter ist ein Function der den link von Icon ändert
                             />
                         </span>
                         <p className="wetter">
@@ -77,14 +78,7 @@ const AktuellesWetter = () => {
                     </div>
                 </>
             ) : (
-                <h2>
-                    {" "}
-                    {sprache === "de"
-                        ? "Ort ist nicht bekannt"
-                        : sprache === "ar"
-                        ? "موقع خاطئ"
-                        : "wrong location"}{" "}
-                </h2>
+               ''
             )}
         </div>
     );
