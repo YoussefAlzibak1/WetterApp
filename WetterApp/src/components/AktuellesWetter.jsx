@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextWetter } from "../context/ContextProvider";
+import {iconWetter} from '../actions/globalVariable'
 import {
     faLocationDot,
     faSortUp,
@@ -9,7 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AktuellesWetter = () => {
-    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn, icon } =
+    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn, } =
         useContext(ContextWetter);
 
     // console.log(wetterData);
@@ -17,12 +18,6 @@ const AktuellesWetter = () => {
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
     const sunriseDate = new Date(sonnenAufGang * 1000);
     const sunsetDate = new Date(sonnenUnterGang * 1000);
-    const [iconTag] = useState(
-        `http://openweathermap.org/img/wn/${wetterData?.weather[0].icon}@2x.png`
-    );
-
-    console.log("ooooooooooooo",iconTag);
-
     function sonneZeiten() {
         setSonnenAufGang(wetterData.sys.sunrise);
         setSonnenUnterGang(wetterData.sys.sunset);
@@ -65,7 +60,7 @@ const AktuellesWetter = () => {
                             {" "}
                             <img
                                 className="img_tags_schau"
-                                src={`${icon}`}
+                                src={`${iconWetter(wetterData?.weather[0].icon)}`}
                             />
                         </span>
                         <p className="wetter">

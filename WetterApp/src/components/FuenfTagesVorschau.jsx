@@ -2,14 +2,12 @@ import { useContext } from "react";
 import { ContextWetter } from "../context/ContextProvider";
 // import { faWind } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import {iconWetter} from '../actions/globalVariable'
 const FuenfTagesVorschau = () => {
     const { wetterDataTag, sprache, wochenTageAr, wochenTageDe, wochenTageEn } =
         useContext(ContextWetter);
 
-    const iconFuenfTage = (icen) => {
-        return `http://openweathermap.org/img/wn/${icen}@2x.png`;
-    };
+  
 
     const filteredWetterData = wetterDataTag?.list
         .slice(0, 42)
@@ -38,7 +36,7 @@ const FuenfTagesVorschau = () => {
                         </div>
                         <img
                             className="img_fuenf_tage"
-                            src={`${iconFuenfTage(wetterData.weather[0].icon)}`}
+                            src={`${iconWetter(wetterData.weather[0].icon)}`}
                             alt=""
                         />
                         <div className="wetterdata-item">

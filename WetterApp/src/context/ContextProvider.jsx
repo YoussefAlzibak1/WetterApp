@@ -42,7 +42,7 @@ function ContextProvider({ children }) {
                 setError(true);
                 console.error(error, "Ort ist nicht bekannt");
             }
-            console.log("-----", wetterData);
+           
         },
         [url, urlDay]
     );
@@ -69,7 +69,6 @@ function ContextProvider({ children }) {
                 setSprache,
                 sprache,
                 isError,
-                icon
             }}
         >
             {children}
