@@ -1,11 +1,11 @@
 export const wochenTageDe = [
-    "Sonntag",
-    "Montag",
-    "Dienstag",
-    "Mittwoch",
-    "Donnerstag",
-    "Freitag",
-    "Samstag",
+    "So",
+    "Mo",
+    "Di",
+    "Mi",
+    "Do",
+    "Fr",
+    "Sa",
   ];
   export const wochenTageAr = [
     "الأحد",
@@ -17,13 +17,13 @@ export const wochenTageDe = [
     "السبت",
   ];
   export const wochenTageEn = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "Su",
+    "Mo",
+    "Tu",
+    "We",
+    "Th",
+    "Fr",
+    "Sa",
   ];
 
   export const iconWetter= (icon) => {

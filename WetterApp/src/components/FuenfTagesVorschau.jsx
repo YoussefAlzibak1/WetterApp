@@ -43,10 +43,10 @@ const FuenfTagesVorschau = () => {
                             <p>{wetterData.main.temp.toFixed()} °C</p>
                         </div>
                         <div className="wetterdata-item">
-                            <p>{wetterData.weather[0].description}</p>
+                            <p className="fuenf">{wetterData.weather[0].description}</p>
                         </div>
                         <div className="wetterdata-item">
-                            <p>
+                            <p className="windspeed">
                                 {/* <FontAwesomeIcon icon={faWind}/> */}{" "}
                                 {wetterData.wind.speed} km/h
                             </p>

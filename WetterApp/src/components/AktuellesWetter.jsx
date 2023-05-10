@@ -45,7 +45,7 @@ const AktuellesWetter = () => {
                             {weekdayDe}{" "}
                             {sunriseDate
                                 .toLocaleDateString("de-DE")
-                                .slice(0, 3)}
+                                .slice(0, 5)}
                         </p>
                         <p className="gebiet">
                             <FontAwesomeIcon icon={faLocationDot} />{" "}
