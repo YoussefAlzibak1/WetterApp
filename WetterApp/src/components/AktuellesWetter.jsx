@@ -10,11 +10,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AktuellesWetter = () => {
-    const { sprache, wetterData, wochenTageAr, wochenTageDe, wochenTageEn,isError } =
+    const { sprache,wetterDataTag, wochenTageAr, wochenTageDe, wochenTageEn,isError } =
         useContext(ContextWetter);
     const [sonnenAufGang, setSonnenAufGang] = useState(0);
     const [sonnenUnterGang, setSonnenUnterGang] = useState(0);
-    const sunriseDate = new Date(sonnenAufGang * 1000);// rechnung von miele secunden
+    const sunriseDate = new Date(sonnenAufGang * 1000);// rechnung von miele secunden von sonnenA Unix-Zeitstempel-Format
     const sunsetDate = new Date(sonnenUnterGang * 1000);// rechnung von miele secunden
     //bearbeitung die Tage in verschedene Sprachen
     const weekdayDe =
@@ -25,8 +25,8 @@ const AktuellesWetter = () => {
             : wochenTageAr[sunriseDate.getDay()];
     // Sonnen Zeiten 
     function sonneZeiten() {
-        setSonnenAufGang(wetterData.sys.sunrise);
-        setSonnenUnterGang(wetterData.sys.sunset);
+        setSonnenAufGang(wetterDataTag.city.sunrise);
+        setSonnenUnterGang(wetterDataTag.city.sunset);
     }
     useEffect(() => {
         sonneZeiten();
@@ -49,24 +49,24 @@ const AktuellesWetter = () => {
                         </p>
                         <p className="gebiet">
                             <FontAwesomeIcon icon={faLocationDot} />{" "}
-                            {wetterData.name}
+                            {wetterDataTag.city.name}
                         </p>
                         <p className="temperatur">
                             {" "}
-                            {wetterData.main.temp.toFixed()}
+                            {wetterDataTag.list[0].main.temp.toFixed()}
                             <span> °C</span>
                         </p>
                         <span>
                             {" "}
                             <img
                                 className="img_tags_schau"
-                                src={`${iconWetter(wetterData?.weather[0].icon)}`}
+                                src={`${iconWetter(wetterDataTag.list[0]?.weather[0].icon)}`}
                                 // iconWetter ist ein Function der den link von Icon ändert
                             />
                         </span>
                         <p className="wetter">
                             {" "}
-                            {wetterData.weather[0].description}
+                            {wetterDataTag.list[0].weather[0].description}
                         </p>
                     </div>
                     <div className="sonne">
@@ -78,7 +78,7 @@ const AktuellesWetter = () => {
                     </div>
                 </>
             ) : (
-               ''
+               <p>Ort ist nicht bekannt</p>
             )}
         </div>
     );
